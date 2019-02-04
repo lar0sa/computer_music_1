@@ -1,4 +1,4 @@
-#N canvas 91 43 474 450 10;
+#N canvas 67 89 474 450 10;
 #X obj 61 260 osc~ 440;
 #X floatatom 95 198 5 0 0 0 - - -, f 5;
 #X obj 53 321 dac~;
@@ -19,9 +19,10 @@ is now 12 half steps in midi numbers., f 32;
 #X text 219 216 we use midi numbers to represent pitch \, which behaves
 linearly. As a reference \, middle C is always 60 in the midi scale.
 , f 32;
-#X obj 174 379 mtof;
-#X floatatom 174 401 5 0 0 0 - - -, f 5;
-#X text 210 380 <- midi to frequency converter;
+#X obj 173 378 mtof;
+#X floatatom 173 400 5 0 0 0 - - -, f 5;
+#X text 209 379 <- midi to frequency converter;
+#X msg 149 136 1760;
 #X connect 0 0 2 0;
 #X connect 0 0 2 1;
 #X connect 1 0 0 0;
@@ -34,3 +35,4 @@ linearly. As a reference \, middle C is always 60 in the midi scale.
 #X connect 9 0 10 0;
 #X connect 10 0 14 0;
 #X connect 14 0 15 0;
+#X connect 17 0 1 0;

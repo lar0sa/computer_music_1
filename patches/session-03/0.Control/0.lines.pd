@@ -1,0 +1,25 @@
+#N canvas 465 39 545 685 10;
+#X obj 51 222 line;
+#X msg 16 48 0 1000;
+#X msg 38 72 1 1000;
+#X obj 51 260 print;
+#X msg 69 114 3.14;
+#N canvas 0 22 921 223 notes-about-miliseconds 0;
+#X text 22 21 Time in Pd is measured in different ways \, but one of
+the most common is in miliseconds. 1 second is 1000 miliseconds.;
+#X restore 20 302 pd notes-about-miliseconds;
+#X text 63 46 (target \, time in msec);
+#X text 21 7 message pairs to generate a linear ramp:, f 25;
+#X text 103 114 jump directly;
+#X floatatom 83 170 5 0 0 0 - - -, f 5;
+#X text 123 156 create a message pair using pack, f 17;
+#X obj 83 186 pack f 5000;
+#X floatatom 51 241 5 0 0 0 - - -, f 5;
+#X text 83 70 <-go to 1 in 1 second;
+#X connect 0 0 12 0;
+#X connect 1 0 0 0;
+#X connect 2 0 0 0;
+#X connect 4 0 0 0;
+#X connect 9 0 11 0;
+#X connect 11 0 0 0;
+#X connect 12 0 3 0;

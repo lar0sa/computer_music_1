@@ -1,0 +1,26 @@
+#N canvas 236 259 373 420 10;
+#X obj 41 13 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 86 58 delay 5000;
+#X obj 41 33 t b b, f 8;
+#X obj 41 153 print now;
+#X obj 86 125 print delayed;
+#X text 69 12 try here;
+#X obj 45 198 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 45 218 t b b, f 8;
+#X obj 45 338 print now;
+#X obj 90 310 print delayed;
+#X text 73 197 try here;
+#X text 162 241 del is the same as delay, f 27;
+#X obj 90 243 del 1000;
+#X text 158 56 the delay object \, delays a bang by a certain number
+of miliseconds \, in this case \, 5 seconds, f 27;
+#X connect 0 0 2 0;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 2 1 1 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 7 1 12 0;
+#X connect 12 0 9 0;
