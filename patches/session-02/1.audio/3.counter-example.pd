@@ -1,0 +1,26 @@
+#N canvas 91 43 474 450 10;
+#X obj 89 210 osc~ 440;
+#X floatatom 88 187 5 0 0 0 - - -, f 5;
+#X obj 81 271 dac~;
+#X obj 89 48 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X obj 88 97 f;
+#X obj 117 98 + 5;
+#X obj 88 163 mtof;
+#X obj 88 141 + 48;
+#X text 114 46 <- Try this out \, do you understand how it works;
+#X text 132 118 modulus object;
+#X text 144 99 notice the larger step size;
+#X obj 88 119 mod 12;
+#X obj 88 75 metro 120;
+#X connect 0 0 2 0;
+#X connect 0 0 2 1;
+#X connect 1 0 0 0;
+#X connect 3 0 12 0;
+#X connect 4 0 5 0;
+#X connect 4 0 11 0;
+#X connect 5 0 4 1;
+#X connect 6 0 1 0;
+#X connect 7 0 6 0;
+#X connect 11 0 7 0;
+#X connect 12 0 4 0;

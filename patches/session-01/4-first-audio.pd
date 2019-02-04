@@ -1,0 +1,9 @@
+#N canvas 319 122 693 485 10;
+#X floatatom 104 46 5 0 0 0 - - -, f 5;
+#X obj 104 97 osc~;
+#X obj 79 150 dac~;
+#X text 113 74 control connection;
+#X text 110 126 audio connection;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;

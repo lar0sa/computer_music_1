@@ -1,0 +1,5 @@
+#N canvas 598 134 292 170 10;
+#X obj 83 109 print;
+#X msg 46 34 hello world;
+#X text 131 32 <- click on this message box in run mode, f 19;
+#X connect 1 0 0 0;

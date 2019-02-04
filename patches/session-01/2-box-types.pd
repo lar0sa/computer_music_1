@@ -1,0 +1,34 @@
+#N canvas 91 163 1122 486 10;
+#X obj 25 210 print;
+#X text 65 210 <- this is an object box;
+#X msg 21 15 this is a message box;
+#X msg 51 41 23;
+#X text 83 41 <- this is also a message box;
+#X floatatom 76 70 5 0 0 0 - - -, f 5;
+#X text 110 70 <- this is a number box;
+#X symbolatom 92 100 10 0 0 0 - - -, f 10;
+#X text 158 100 this is a symbol box \, and we won't worry about it
+for now.;
+#X obj 111 134 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 119 158 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 444 156 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 444 179 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 444 201 print;
+#X text 309 12 note: number boxes can be modified in run mode \, by
+clicking and dragging (integers) \, shift+click and drag (floating
+point) \, and click and type (both)., f 31;
+#X text 465 155 <- test this!;
+#X text 132 132 <- this is a bang "graphical" object;
+#X text 139 158 <- this is a toggle "graphical" object;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 5 0 0 0;
+#X connect 7 0 0 0;
+#X connect 9 0 0 0;
+#X connect 10 0 0 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;

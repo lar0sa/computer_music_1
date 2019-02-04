@@ -1,0 +1,46 @@
+#N canvas 383 89 1041 902 10;
+#X msg 88 26 1 54 3.14;
+#X floatatom 61 261 5 0 0 0 - - -, f 5;
+#X floatatom 95 309 5 0 0 0 - - -, f 5;
+#X obj 70 402 print cat;
+#X floatatom 123 337 5 0 0 0 - - -, f 5;
+#X obj 70 380 pack f f f 34;
+#X msg 286 267 1 54 3.14;
+#X obj 286 300 unpack f f f;
+#X floatatom 263 344 5 0 0 0 - - -, f 5;
+#X floatatom 316 363 5 0 0 0 - - -, f 5;
+#X floatatom 364 335 5 0 0 0 - - -, f 5;
+#X text 104 263 <- hot inlet;
+#X text 91 285 cold inlets:;
+#X floatatom 102 106 5 0 0 0 - - -, f 5;
+#X floatatom 146 106 5 0 0 0 - - -, f 5;
+#X obj 117 143 pack;
+#X obj 269 139 unpack;
+#X floatatom 265 171 5 0 0 0 - - -, f 5;
+#X floatatom 308 171 5 0 0 0 - - -, f 5;
+#X msg 269 108 23 34;
+#X obj 117 172 print packed;
+#X obj 88 53 print this_is_a_list;
+#X text 66 2 a list is a series of elements separated by spaces;
+#X text 155 27 <- click on the list;
+#X text 318 138 <- output right to left;
+#X text 31 205 pack and unpack assume you have two floats always \,
+but you can modify this by creating more outlets with creation arguments.
+You can pack things that are not numbers \, but we'll see that later.
+, f 75;
+#X text 161 378 <- f and 34 are creation arguments, f 10;
+#X connect 0 0 21 0;
+#X connect 1 0 5 0;
+#X connect 2 0 5 1;
+#X connect 4 0 5 2;
+#X connect 5 0 3 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 7 1 9 0;
+#X connect 7 2 10 0;
+#X connect 13 0 15 0;
+#X connect 14 0 15 1;
+#X connect 15 0 20 0;
+#X connect 16 0 17 0;
+#X connect 16 1 18 0;
+#X connect 19 0 16 0;
