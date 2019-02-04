@@ -1,0 +1,4 @@
+#N canvas 328 272 888 651 10;
+#X text 33 22 Create a patch that glisses from 800 Hz to 0 Hz every
+500ms. How would you describe the difference between line and line~?
+, f 62;

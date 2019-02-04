@@ -1,0 +1,4 @@
+#N canvas 0 22 450 300 10;
+#X text 15 12 Build a counter that is controlled by a metro and that
+plays the seven notes of the major scale in an oscilator. Make it a
+C major scale \, starting at C = 60;

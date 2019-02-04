@@ -1,0 +1,21 @@
+#N canvas 197 226 469 470 10;
+#X floatatom 233 110 5 0 0 0 - - -, f 5;
+#X obj 258 163 +;
+#X floatatom 258 185 5 0 0 0 - - -, f 5;
+#X obj 283 130 t b f;
+#X floatatom 283 109 5 0 0 0 - - -, f 5;
+#X floatatom 63 112 5 0 0 0 - - -, f 5;
+#X obj 88 165 +;
+#X floatatom 88 187 5 0 0 0 - - -, f 5;
+#X floatatom 124 111 5 0 0 0 - - -, f 5;
+#X text 65 59 Can you tell what is the difference bewteen the two constructions
+below?;
+#X text 49 230 write text here...;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 1 0;
+#X connect 3 1 1 1;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 8 0 6 1;

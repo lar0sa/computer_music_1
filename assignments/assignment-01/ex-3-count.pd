@@ -1,0 +1,96 @@
+#N canvas 40 68 1005 524 10;
+#X obj 109 117 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 139 152 f;
+#X obj 183 177 + 1;
+#X floatatom 139 190 5 0 0 0 - - -, f 5;
+#X msg 177 117 0;
+#X text 208 117 reset;
+#X text 66 116 step;
+#X text 166 145 <- notice the cold inlet;
+#X obj 139 209 print;
+#X text 563 18 2) check out the help file for:;
+#X obj 771 17 sel;
+#X text 87 12 this is a basic counter \, which we'll refer to as the
+original patch:;
+#X text 36 237 Check out the help files for the objects below:;
+#X text 564 229 3) check out the help file for:;
+#X text 563 37 How would you use it to modify the original patch to
+make it reset every time it reaches 11?;
+#X text 36 259 1) how would you modify the original patch in order
+to: (1a) grow 2 each step \, (1b) move 1 backwards each step?;
+#X obj 766 229 mod;
+#X text 564 259 mod stands for modulo operation and it is explained
+here: https://en.wikipedia.org/wiki/Modulo_operation, f 58;
+#X obj 109 49 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 109 69 metro 1000;
+#X text 132 49 click here to automate steps;
+#X text 208 177 step size;
+#X obj 58 400 f;
+#X obj 102 425 + 1;
+#X floatatom 58 438 5 0 0 0 - - -, f 5;
+#X obj 58 457 print;
+#X obj 58 347 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 58 367 metro 1000;
+#X text 54 315 1a);
+#X obj 228 398 f;
+#X obj 272 423 + 1;
+#X floatatom 228 436 5 0 0 0 - - -, f 5;
+#X obj 228 455 print;
+#X obj 228 345 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 228 365 metro 1000;
+#X text 224 313 1b);
+#X text 53 294 your answers here:;
+#X obj 600 133 f;
+#X obj 644 158 + 1;
+#X floatatom 600 171 5 0 0 0 - - -, f 5;
+#X obj 600 190 print;
+#X obj 600 80 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 600 100 metro 1000;
+#X obj 722 137 sel;
+#X text 564 304 How would you use [mod] to modify the original patch
+to make it produce the series 0 1 2 3 repeat?;
+#X obj 608 425 f;
+#X obj 652 450 + 1;
+#X floatatom 608 463 5 0 0 0 - - -, f 5;
+#X obj 608 482 print;
+#X obj 608 372 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 608 392 metro 1000;
+#X obj 730 429 mod;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 1;
+#X connect 3 0 8 0;
+#X connect 4 0 1 1;
+#X connect 18 0 19 0;
+#X connect 19 0 0 0;
+#X connect 22 0 23 0;
+#X connect 22 0 24 0;
+#X connect 23 0 22 1;
+#X connect 24 0 25 0;
+#X connect 26 0 27 0;
+#X connect 27 0 22 0;
+#X connect 29 0 30 0;
+#X connect 29 0 31 0;
+#X connect 30 0 29 1;
+#X connect 31 0 32 0;
+#X connect 33 0 34 0;
+#X connect 34 0 29 0;
+#X connect 37 0 38 0;
+#X connect 37 0 39 0;
+#X connect 38 0 37 1;
+#X connect 39 0 40 0;
+#X connect 41 0 42 0;
+#X connect 42 0 37 0;
+#X connect 45 0 46 0;
+#X connect 45 0 47 0;
+#X connect 46 0 45 1;
+#X connect 47 0 48 0;
+#X connect 49 0 50 0;
+#X connect 50 0 45 0;

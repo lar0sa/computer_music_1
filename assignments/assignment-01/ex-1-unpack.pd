@@ -1,0 +1,13 @@
+#N canvas 367 22 452 645 10;
+#X msg 33 227 3 6 4 9 12;
+#X obj 33 249 unpack f f f f f;
+#X text 20 114 (3 + 6 x 4 + 9) / 12;
+#X text 20 145 the answer is 3 \, be sure to use the correct order
+of execution. That is \, first do multiplication and division \, then
+addition and substraction. (see: https://en.wikipedia.org/wiki/Order_of_operations)
+;
+#X text 22 37 Check out the help file for unpack to see the order of
+output on each outlet. Make the patch that will evaluate the following
+formula:, f 38;
+#X text 35 552 Save the patch before submitting it...;
+#X connect 0 0 1 0;
