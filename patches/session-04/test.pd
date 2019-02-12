@@ -1,0 +1,30 @@
+#N canvas 183 168 604 496 16;
+#X floatatom 57 34 5 0 0 0 - - -, f 5;
+#X floatatom 55 148 5 0 0 0 - - -, f 5;
+#X obj 57 60 s hats;
+#X obj 55 119 r hats;
+#X msg 170 42 \; hats 345;
+#X obj 169 98 osc~ 440;
+#X obj 169 127 s~ flowers;
+#X obj 169 171 r~ flowers;
+#X obj 138 241 dac~;
+#N canvas 661 336 450 300 banana 1;
+#X obj 117 30 inlet;
+#X obj 110 236 outlet;
+#X obj 111 106 delay 400;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X restore 343 99 pd banana;
+#X obj 343 64 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 343 152 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 313 295 abstraction;
+#X obj 319 241 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 0 0 2 0;
+#X connect 3 0 1 0;
+#X connect 5 0 6 0;
+#X connect 9 0 11 0;
+#X connect 10 0 9 0;
+#X connect 13 0 12 0;

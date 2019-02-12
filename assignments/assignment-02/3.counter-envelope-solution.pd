@@ -1,0 +1,67 @@
+#N canvas 468 89 1347 991 10;
+#X floatatom 29 176 5 0 0 0 - - -, f 5;
+#X obj 42 466 dac~;
+#X obj 29 17 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 29 86 f;
+#X obj 29 152 mtof;
+#X text 73 107 modulus object;
+#X text 85 88 notice the larger step size;
+#X obj 29 219 t f b, f 21;
+#X obj 151 244 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 54 15 <- ON/OFF;
+#X floatatom 80 42 5 0 0 0 - - -, f 5;
+#X text 116 41 speed;
+#X obj 58 87 + 7;
+#X obj 29 108 mod 17;
+#X text 125 415 <- connect the output of the envelope here;
+#X text 306 237 <- put your envelope patch after this bang, f 17;
+#X obj 29 130 + 36;
+#X obj 29 256 phasor~;
+#X text 325 135 Create an envelope generator that consists of the following:
+, f 33;
+#X obj 29 64 metro 160;
+#X text 304 131 |;
+#X text 304 141 |;
+#X text 304 151 |;
+#X text 304 161 |;
+#X text 304 172 |;
+#X text 304 182 |;
+#X text 304 192 |;
+#X text 299 195 _;
+#X text 299 121 _;
+#X text 309 160 >;
+#X text 225 139 insert your patch here, f 8;
+#X text 326 178 2) Then immediately after it reaches 1 \, ramp to 0
+over 100ms, f 42;
+#X obj 48 415 *~, f 10;
+#X text 326 163 1) First \, make a line to 1 over 5 miliseconds (ms)
+;
+#X obj 111 380 line~;
+#X msg 147 342 1 5;
+#X msg 98 341 0 100;
+#X obj 98 314 del 5;
+#X obj 151 262 t b b;
+#X connect 0 0 7 0;
+#X connect 2 0 19 0;
+#X connect 3 0 12 0;
+#X connect 3 0 13 0;
+#X connect 4 0 0 0;
+#X connect 7 0 17 0;
+#X connect 7 1 8 0;
+#X connect 8 0 38 0;
+#X connect 10 0 19 1;
+#X connect 12 0 3 1;
+#X connect 13 0 16 0;
+#X connect 16 0 4 0;
+#X connect 17 0 32 0;
+#X connect 19 0 3 0;
+#X connect 32 0 1 0;
+#X connect 32 0 1 1;
+#X connect 34 0 32 1;
+#X connect 35 0 34 0;
+#X connect 36 0 34 0;
+#X connect 37 0 36 0;
+#X connect 38 0 37 0;
+#X connect 38 1 35 0;

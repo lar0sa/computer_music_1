@@ -1,0 +1,11 @@
+#N canvas 264 246 366 131 10;
+#N canvas 464 68 450 300 subpatch 0;
+#X text 111 84 This is a subpatch;
+#X obj 41 51 inlet;
+#X obj 42 210 outlet;
+#X obj 38 128 + 1;
+#X connect 1 0 3 0;
+#X connect 3 0 2 0;
+#X restore 49 24 pd subpatch;
+#X text 67 63 An object called pd creates a sub-patch;
+#X text 47 86 In run mode \, click on it to open...;

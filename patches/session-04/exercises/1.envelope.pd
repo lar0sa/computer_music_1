@@ -1,0 +1,25 @@
+#N canvas 137 219 831 741 10;
+#X obj 81 166 osc~ 440;
+#X obj 101 283 *~;
+#X text 4 0 Make a small patch that controls the amplitude of an oscilator
+in the following way.;
+#X obj 101 305 dac~;
+#X text 3 51 2) Once it reaches 1 \, ramp down to 0 over 300 ms;
+#X obj 81 141 mtof;
+#X floatatom 81 100 5 0 0 0 - - -, f 5;
+#X obj 81 119 t f b, f 29;
+#X obj 252 142 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 270 139 put your patch below this bang, f 15;
+#X msg 81 76 60;
+#X msg 112 76 62;
+#X text 3 33 1) Ramp up to 1 over 30 ms;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 1 0 3 1;
+#X connect 5 0 0 0;
+#X connect 6 0 7 0;
+#X connect 7 0 5 0;
+#X connect 7 1 8 0;
+#X connect 10 0 6 0;
+#X connect 11 0 6 0;

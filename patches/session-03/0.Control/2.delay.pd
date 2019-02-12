@@ -1,4 +1,4 @@
-#N canvas 236 259 373 420 10;
+#N canvas 189 259 376 420 10;
 #X obj 41 13 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 86 58 delay 5000;
@@ -16,6 +16,8 @@
 #X obj 90 243 del 1000;
 #X text 158 56 the delay object \, delays a bang by a certain number
 of miliseconds \, in this case \, 5 seconds, f 27;
+#X msg 165 11 stop;
+#X text 205 6 the stop message prevents the delayed bang, f 25;
 #X connect 0 0 2 0;
 #X connect 1 0 4 0;
 #X connect 2 0 3 0;
@@ -24,3 +26,4 @@ of miliseconds \, in this case \, 5 seconds, f 27;
 #X connect 7 0 8 0;
 #X connect 7 1 12 0;
 #X connect 12 0 9 0;
+#X connect 14 0 1 0;

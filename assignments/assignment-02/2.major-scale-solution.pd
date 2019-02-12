@@ -1,0 +1,76 @@
+#N canvas 397 113 1330 827 10;
+#X text 15 12 Build a counter that is controlled by a metro and that
+plays the seven notes of the major scale in an oscilator. Make it a
+C major scale \, starting at C = 60;
+#X obj 64 127 f;
+#X obj 98 126 + 1;
+#X obj 65 100 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 65 56 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 65 74 metro 500;
+#X text 439 44 2 2 1 2 2 2 1;
+#X text 425 12 60 62 64 65 67 69 71 72;
+#X obj 64 146 % 8;
+#X obj 64 166 sel 0 1 2 3 4 5 6 7;
+#X msg 36 205 60;
+#X floatatom 36 224 5 0 0 0 - - -, f 5;
+#X obj 36 243 mtof;
+#X obj 36 262 osc~;
+#X obj 36 297 dac~;
+#X msg 70 205 62;
+#X msg 106 204 64;
+#X text 203 166 indexing;
+#X obj 334 137 f;
+#X obj 335 111 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 335 67 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 335 84 metro 500;
+#X text 426 30 0 2 4 5 7 9 11 12;
+#X obj 390 209 sel 4 11;
+#X obj 435 233 t b;
+#X msg 435 252 2;
+#X floatatom 520 154 5 0 0 0 - - -, f 5;
+#X obj 386 138 + 2;
+#X msg 389 251 1;
+#X obj 334 181 t f f;
+#X floatatom 312 244 5 0 0 0 - - -, f 5;
+#X obj 334 161 mod 12;
+#X obj 312 263 + 60;
+#X obj 312 282 mtof;
+#X obj 312 302 osc~;
+#X obj 301 329 dac~;
+#X connect 1 0 2 0;
+#X connect 1 0 8 0;
+#X connect 2 0 1 1;
+#X connect 3 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 9 1 15 0;
+#X connect 9 2 16 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 18 0 31 0;
+#X connect 19 0 18 0;
+#X connect 20 0 21 0;
+#X connect 21 0 19 0;
+#X connect 23 0 28 0;
+#X connect 23 1 28 0;
+#X connect 23 2 24 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 0;
+#X connect 26 0 27 1;
+#X connect 27 0 18 1;
+#X connect 28 0 26 0;
+#X connect 29 0 27 0;
+#X connect 29 0 30 0;
+#X connect 29 1 23 0;
+#X connect 30 0 32 0;
+#X connect 31 0 29 0;
+#X connect 32 0 33 0;
+#X connect 33 0 34 0;
+#X connect 34 0 35 0;

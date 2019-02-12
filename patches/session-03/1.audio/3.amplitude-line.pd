@@ -1,4 +1,4 @@
-#N canvas 321 125 1064 705 10;
+#N canvas 274 125 1064 705 10;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array scope 4410 float 3;
 #A 0 -0.71139 -0.670212 -0.626849 -0.58145 -0.534172 -0.485149 -0.434554
@@ -558,7 +558,7 @@
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0;
 #X coords 0 1 4410 -1 200 140 1 0 0;
-#X restore 243 89 graph;
+#X restore 195 32 graph;
 #X obj 21 220 *~;
 #X obj 80 288 tabwrite~ scope;
 #X obj 147 223 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144

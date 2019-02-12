@@ -1,0 +1,4 @@
+#N canvas 369 153 450 300 16;
+#X obj 81 87 print test;
+#X obj 80 49 inlet;
+#X connect 1 0 0 0;

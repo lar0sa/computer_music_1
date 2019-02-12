@@ -1,0 +1,260 @@
+#N canvas 81 95 360 258 10;
+#N canvas 0 81 421 359 connections 0;
+#X text 16 14 Each of these boxes has a function. Object boxes are
+small programs with clear rules. All of these boxes are connected with
+"patchcords".;
+#X text 16 59 You can connect these different objects by placing the
+pointer in the outlet of a box (notice that the cursor will change
+its shape to a circle) and then click and drag to the inlet of the
+object you want to connect it to.;
+#X floatatom 33 180 5 0 0 0 - - -, f 5;
+#X obj 33 220 pack;
+#X floatatom 99 179 5 0 0 0 - - -, f 5;
+#X obj 33 265 line;
+#X obj 99 223 pack;
+#X obj 99 268 line;
+#X obj 33 303 print A;
+#X obj 99 303 print B;
+#X floatatom 244 180 5 0 0 0 - - -, f 5;
+#X obj 244 218 pack;
+#X floatatom 310 179 5 0 0 0 - - -, f 5;
+#X obj 244 259 line;
+#X obj 310 217 pack;
+#X obj 310 258 line;
+#X obj 244 300 print A;
+#X obj 310 299 print B;
+#X text 215 126 in edit mode \, copy the connections from the left
+example and then delete them:, f 30;
+#X connect 2 0 3 0;
+#X connect 2 0 6 1;
+#X connect 3 0 5 0;
+#X connect 3 0 7 0;
+#X connect 4 0 3 1;
+#X connect 4 0 6 0;
+#X connect 5 0 8 0;
+#X connect 6 0 7 0;
+#X connect 6 0 5 0;
+#X connect 7 0 9 0;
+#X restore 19 104 pd connections;
+#N canvas 0 81 450 300 visual 0;
+#X obj 64 51 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 64 71 print;
+#X obj 168 97 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 152 75 print;
+#X obj 42 103 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 137 249 print;
+#X obj 222 216 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 270 113 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 384 143 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 297 193 print;
+#X obj 344 252 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 24 10 While it is useful to imagine things always going down
+\, these two things are the same although they look different:;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 10 0 6 0;
+#X restore 20 170 pd visual;
+#X text 14 27 click on these subpatches (in run mode):;
+#N canvas 0 81 450 300 edit_and_run_mode 0;
+#X text 15 14 There are two modes: Edit and Run Mode.;
+#X text 15 31 To toggle between them use the shortcut "command+E";
+#X text 15 62 You can only create and edit patches while on Edit Mode.
+when you are in edit mode and you move the mouse you'll see a little
+hand pointing with a finger. When you are in Run mode and move the
+mouse \, you should see an arrow. Remember you must move the mouse
+to see the change in the shape of the pointer.;
+#X text 48 179 object: command+1;
+#X text 48 195 message: command+2;
+#X text 48 211 number: command+3;
+#X text 17 157 The shortcuts to create an object are:;
+#X text 19 237 All other shortcuts are shown in the Put menu \, make
+the follwing:;
+#X obj 82 254 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 115 254 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 143 255 comment;
+#X restore 20 79 pd edit_and_run_mode;
+#N canvas 679 81 403 139 kinds_of_boxes 0;
+#X text 31 8 We have seen 3 kinds of boxes in Pd. Object boxes \, number
+boxes and message boxes.;
+#X obj 64 79 metro;
+#X floatatom 249 81 5 0 0 0 - - -, f 5;
+#X msg 150 67 message;
+#X text 244 48 number:;
+#X text 60 46 object:;
+#X restore 19 54 pd kinds_of_boxes;
+#N canvas 507 128 450 300 arguments 0;
+#X text 15 16 in general \, you can create objects with an argument
+like here;
+#X obj 15 49 + 30;
+#X text 14 71 or without an argument like here:;
+#X obj 14 92 +;
+#X text 13 117 in all cases an object will have a default value when
+no arguments are given \, in this case the value is 0 \, so if you
+cahnge the number box below you'll get the same at the output:;
+#X floatatom 114 181 5 0 0 0 - - -, f 5;
+#X obj 114 200 +;
+#X floatatom 114 222 5 0 0 0 - - -, f 5;
+#X floatatom 164 182 5 0 0 0 - - -, f 5;
+#X floatatom 164 223 5 0 0 0 - - -, f 5;
+#X obj 164 201 + 30;
+#X floatatom 69 48 5 0 0 0 - - -, f 5;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 8 0 10 0;
+#X connect 10 0 9 0;
+#X connect 11 0 1 1;
+#X restore 19 146 pd arguments;
+#N canvas 366 85 405 715 hot-cold 0;
+#X floatatom 36 85 5 0 0 0 - - -, f 5;
+#X obj 52 120 +;
+#X floatatom 83 86 5 0 0 0 - - -, f 5;
+#X floatatom 52 158 5 0 0 0 - - -, f 5;
+#X text 12 6 Many objects in pd have two inlets. the left most inlet
+is called the hot inlet \, because inputting a value into it will cause
+the program to execute. The rightmost inlet is instead called the cold
+inlet as it will not execute the program but store its value. You can
+test this below;
+#X obj 156 89 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 180 125 f;
+#X floatatom 210 89 5 0 0 0 - - -, f 5;
+#X floatatom 180 160 5 0 0 0 - - -, f 5;
+#X floatatom 79 371 5 0 0 0 - - -, f 5;
+#X floatatom 206 370 5 0 0 0 - - -, f 5;
+#X obj 206 348 +;
+#X obj 79 349 +;
+#X msg 51 308 2;
+#X msg 116 310 3;
+#X msg 187 310 2;
+#X msg 236 309 3;
+#X obj 74 248 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 74 268 t b b;
+#X text 13 188 this is why the order of execution is very important.
+Click only once in each of the following bangs:;
+#X obj 203 247 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 203 267 t b b;
+#X text 40 244 a);
+#X text 157 246 b);
+#X obj 107 439 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 107 459 t b b b b;
+#X msg 199 493 3;
+#X msg 160 491 2;
+#X msg 122 492 1;
+#X msg 75 490 bang;
+#X obj 123 546 print;
+#X text 16 406 If your aim is to add 2 + 3 and get 5 \, then b) is
+wrong and a) is correct. this is because trigger outputs from right
+to left.;
+#X text 129 439 <- click here and look at the console;
+#X text 17 575 finally \, can you tell the difference between these?
+;
+#X floatatom 50 602 5 0 0 0 - - -, f 5;
+#X obj 59 628 +;
+#X floatatom 59 650 5 0 0 0 - - -, f 5;
+#X floatatom 87 602 5 0 0 0 - - -, f 5;
+#X floatatom 232 595 5 0 0 0 - - -, f 5;
+#X obj 232 665 +;
+#X floatatom 232 687 5 0 0 0 - - -, f 5;
+#X floatatom 256 614 5 0 0 0 - - -, f 5;
+#X obj 256 633 t b f;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 1;
+#X connect 5 0 6 0;
+#X connect 6 0 8 0;
+#X connect 7 0 6 1;
+#X connect 11 0 10 0;
+#X connect 12 0 9 0;
+#X connect 13 0 12 0;
+#X connect 14 0 12 1;
+#X connect 15 0 11 0;
+#X connect 16 0 11 1;
+#X connect 17 0 18 0;
+#X connect 18 0 13 0;
+#X connect 18 1 14 0;
+#X connect 20 0 21 0;
+#X connect 21 0 16 0;
+#X connect 21 1 15 0;
+#X connect 24 0 25 0;
+#X connect 25 0 29 0;
+#X connect 25 1 28 0;
+#X connect 25 2 27 0;
+#X connect 25 3 26 0;
+#X connect 26 0 30 0;
+#X connect 27 0 30 0;
+#X connect 28 0 30 0;
+#X connect 29 0 30 0;
+#X connect 34 0 35 0;
+#X connect 35 0 36 0;
+#X connect 37 0 35 1;
+#X connect 38 0 39 0;
+#X connect 39 0 40 0;
+#X connect 41 0 42 0;
+#X connect 42 0 39 0;
+#X connect 42 1 39 1;
+#X restore 20 125 pd hot-cold;
+#N canvas 295 128 523 626 exercises 0;
+#X text 116 14 A few fundamentals:;
+#X text 21 33 go to edit mode and:;
+#X text 20 55 delete this object:;
+#X obj 161 54 line;
+#X obj 322 80 line;
+#X text 17 80 change the text of this object to "line~:";
+#X floatatom 303 216 5 0 0 0 - - -, f 5;
+#X obj 303 235 +;
+#X floatatom 303 257 5 0 0 0 - - -, f 5;
+#X floatatom 150 421 5 0 0 0 - - -, f 5;
+#X obj 150 440 +;
+#X floatatom 150 462 5 0 0 0 - - -, f 5;
+#X obj 150 481 +;
+#X floatatom 150 503 5 0 0 0 - - -, f 5;
+#X obj 150 544 -;
+#X obj 150 522 +;
+#X floatatom 150 566 5 0 0 0 - - -, f 5;
+#X msg 150 399;
+#X text 283 363 your copy here;
+#X text 317 376 |;
+#X text 317 379 v;
+#X text 22 158 now move and then delete this whole set of objects;
+#X text 96 189 |;
+#X text 96 192 v;
+#X text 26 296 Another patching aid is that when you create a new object
+\, number \, or message while another one is selected \, the new one
+will be placed immediately below. Make a copy of the following without
+ever connecting a patchcord manually (i.e. only using shortcuts):,
+f 67;
+#X text 74 109 (You should notice that to delete the object you must
+select it by dragging and to change the text you just need to click
+on it);
+#X text 312 190 |;
+#X text 312 193 v;
+#X text 250 175 1.select this whole thing:;
+#X text 62 176 2.move it here;
+#X text 67 278 3 delete it;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 15 0;
+#X connect 14 0 16 0;
+#X connect 15 0 14 0;
+#X connect 17 0 9 0;
+#X restore 20 196 pd exercises;

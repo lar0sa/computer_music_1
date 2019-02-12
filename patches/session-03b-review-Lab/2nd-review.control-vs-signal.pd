@@ -1,0 +1,143 @@
+#N canvas 100 89 430 595 10;
+#X text 134 17 CONTROL vs SIGNAL;
+#X obj 94 68 osc~;
+#X obj 137 68 line~;
+#X obj 185 68 *~;
+#X text 18 39 signal objects are notated with the "~" (tilde) symbol.
+;
+#X obj 183 162 line~;
+#X obj 183 195 *~;
+#X obj 105 163 line;
+#X obj 105 196 *;
+#X obj 183 228 osc~;
+#X floatatom 105 233 5 0 0 0 - - -, f 5;
+#X text 20 102 Also \, connections carrying control messages \, vs.
+audio signals will be 1 and 2 pixels wide. In other words \, audio
+signals have a thicker line:;
+#X text 23 266 here are some basic differences;
+#N canvas 67 89 449 280 control 0;
+#X floatatom 56 116 5 0 0 0 - - -, f 5;
+#X obj 34 137 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 95 95 43;
+#X obj 170 139 line;
+#X obj 260 91 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 260 111 del 1000;
+#X obj 100 235 print message-tests;
+#X text 23 9 control messages are contingent. In other words \, they
+only output messages if they receive a command to do so. try the following
+objects and see their output in the Pd console (where all things are
+printed):, f 65;
+#X msg 260 168 late message;
+#X msg 170 117 0 \, 1 100;
+#X msg 131 95 test message;
+#X text 316 107 <- Check the help file for delay \, or "del", f 16
+;
+#X connect 0 0 6 0;
+#X connect 1 0 6 0;
+#X connect 2 0 6 0;
+#X connect 3 0 6 0;
+#X connect 4 0 5 0;
+#X connect 5 0 8 0;
+#X connect 8 0 6 0;
+#X connect 9 0 3 0;
+#X connect 10 0 6 0;
+#X restore 33 294 pd control messages;
+#N canvas 67 89 419 522 audio 0;
+#X obj 44 170 line;
+#X obj 44 128 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 44 148 0 \, 1 40;
+#X obj 225 129 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 225 149 t b b;
+#X obj 252 194 line~;
+#X msg 252 172 0 \, 1 40;
+#X obj 252 216 print~ audio_signal;
+#X obj 44 192 print control_message;
+#X text 61 127 <---- click on these ---->;
+#X obj 204 239 r print-it;
+#X text 243 130 (make sure dsp is on);
+#X text 22 8 Pd is using audio only when dsp is on. You can turn dsp
+on with "command+/" and stop it with "command+.";
+#X text 20 46 When DSP is on \, audio objects are always outputting
+numbers. these numbers succeed each other at a constant rate called
+the sample rate (by default sample rate = 44 \, 100). A stream of numbers
+at this fast rate is called an audio signal.;
+#X obj 53 371 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 53 391 s print-it;
+#X text 22 279 The reason [print~] stops printing is that if it printed
+indefinitely it would choke your computer as there are too many numbers
+per second (44 \, 100 right?). While it seems like it is not doing
+anything \, the [line~] object is continuously outputting numbers.
+The way we probe this is by banging it as in the example below.;
+#X text 25 420 If the last value that [line~] received was 1 \, it
+will continue to output it until it receives a new one.;
+#X text 25 461 Bottom line \, audio signals output indefinitely and
+control messages only when asked to do so...;
+#X text 71 371 this is sending a message to the [print~] above;
+#X connect 0 0 8 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 7 0;
+#X connect 4 1 6 0;
+#X connect 5 0 7 0;
+#X connect 6 0 5 0;
+#X connect 10 0 7 0;
+#X connect 14 0 15 0;
+#X restore 33 316 pd audio signals;
+#X floatatom 35 435 5 0 0 0 - - -, f 5;
+#X obj 36 394 osc~;
+#X text 23 347 note that you cannot connect an audio signal to a control
+box. try it and see the error message in the console;
+#N canvas 67 248 711 419 exercise 0;
+#X obj 22 237 osc~ 440;
+#X obj 75 302 *~, f 16;
+#X obj 165 131 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 165 151 t b b, f 10;
+#X obj 213 243 line~;
+#X obj 63 357 dac~;
+#X text 439 67 make your own here:;
+#X text 326 50 |||||||||||||||||||||||||, f 1;
+#X floatatom 22 215 5 0 0 0 - - -, f 5;
+#X obj 22 191 line;
+#X obj 22 167 pack f 10000;
+#X floatatom 22 105 5 40 110 0 - - -, f 5;
+#X obj 22 124 mtof;
+#X floatatom 22 146 5 0 0 0 - - -, f 5;
+#X text 9 16 Copy the following patch several times to make sure that
+you can do it faster each time. Try to not use the menus \, but only
+the shortcuts., f 109;
+#X text 490 81 |;
+#X text 490 84 v;
+#X msg 222 177 1 200;
+#X obj 165 178 del 200;
+#X msg 165 201 0 6000;
+#X text 59 103 <- move this;
+#X text 184 130 <- bang this;
+#X connect 0 0 1 0;
+#X connect 1 0 5 0;
+#X connect 1 0 5 1;
+#X connect 2 0 3 0;
+#X connect 3 0 18 0;
+#X connect 3 1 17 0;
+#X connect 4 0 1 1;
+#X connect 8 0 0 0;
+#X connect 9 0 8 0;
+#X connect 10 0 9 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 10 0;
+#X connect 17 0 4 0;
+#X connect 18 0 19 0;
+#X connect 19 0 4 0;
+#X restore 36 532 pd exercise;
+#X text 32 484 FINAL Exercise;
+#X connect 5 0 6 0;
+#X connect 6 0 9 0;
+#X connect 7 0 8 0;
+#X connect 8 0 10 0;
