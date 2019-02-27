@@ -1,0 +1,22 @@
+#N canvas 21 196 1024 687 10;
+#X text 11 9 create a simple synth that:;
+#X text 7 178 4) uses the output of that same adsr~ to:;
+#X text 26 219 + the vcf~ has a default "q" of 20;
+#X text 26 193 + control the center frequency of a vcf~ with a range
+from 0 to 5000 Hz;
+#X obj 213 34 notein;
+#X obj 264 35 poly 1 1;
+#X text 11 35 1) has a single voice using:;
+#X obj 327 35 route 1;
+#X msg 272 77 set arrayname;
+#X text 8 144 3) has an adsr~ that controls its amplitude. (Use your
+already made abstraction...);
+#X text 8 60 2) has a toggle to change waveforms in arrays "waveform1"
+and "waveform2" using the message:;
+#X text 12 102 Use the phasor in your voice~ abstraction to read into
+a tabread4~;
+#X text 14 285 5) You might need to adjust the level to compensate
+for the energy drop of the filter. multiplying the final output times
+a constant like 5 should be enough to hear it.;
+#X text 25 233 + you don't need to modify your adsr abstraction and
+the vcf must be inside your voice.;

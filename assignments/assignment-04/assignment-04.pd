@@ -1,0 +1,74 @@
+#N canvas 783 347 164 124 10;
+#N canvas 65 84 450 300 exercise_1 0;
+#X msg 72 19 1 32 \, 2 45 \, 3 56 \, 4 78;
+#X obj 129 154 +;
+#X obj 93 154 +;
+#X obj 105 188 *;
+#X floatatom 105 211 5 0 0 0 - - -, f 5;
+#X floatatom 82 94 5 0 0 0 - - -, f 5;
+#X floatatom 106 114 5 0 0 0 - - -, f 5;
+#X floatatom 131 93 5 0 0 0 - - -, f 5;
+#X floatatom 156 113 5 0 0 0 - - -, f 5;
+#X obj 119 46 print input;
+#X text 229 84 modify the arguments of route to obtain the result of
+(78+56)*(45+23)=10 \, 318, f 24;
+#X obj 82 71 route 1 2 3 4, f 17;
+#X connect 0 0 9 0;
+#X connect 0 0 11 0;
+#X connect 1 0 3 1;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 5 0 2 0;
+#X connect 6 0 2 1;
+#X connect 7 0 1 0;
+#X connect 8 0 1 1;
+#X connect 11 0 5 0;
+#X connect 11 1 6 0;
+#X connect 11 2 7 0;
+#X connect 11 3 8 0;
+#X restore 45 17 pd exercise_1;
+#N canvas 211 316 550 286 exercise_2 0;
+#X obj 86 32 metro 150;
+#X obj 86 55 f;
+#X obj 119 55 + 5;
+#X obj 86 78 mod 12;
+#X obj 95 135 phasor~;
+#X obj 131 184 vcf~ 20;
+#X obj 119 229 dac~;
+#X text 218 9 yout patch here;
+#X text 252 25 |;
+#X text 252 30 v;
+#X text 381 34 create a patch where the output range of an oscillator
+running at a fourth of a Hertz is modified so it ranges from 60 to
+4860 Hz and controls the center frequency of the band pass filter,
+f 25;
+#X obj 86 101 + 48;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 1;
+#X connect 3 0 11 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 5 0 6 1;
+#X connect 11 0 4 0;
+#X restore 45 41 pd exercise_2;
+#N canvas 795 198 484 223 exercise_3 1;
+#X text 23 17 Open the organ-v.1 patch from session 5 and do the following
+modifications:;
+#X text 42 162 3 if you keyboard has knobs or sliders connect them
+to these sliders using [ctlin], f 58;
+#X text 42 55 1 Modify the patch so that it has 8 voices instead of
+the four it currently has.;
+#X obj 421 48 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 5500 1;
+#X floatatom 421 184 5 0 0 0 - - -, f 5;
+#X text 411 9 try me!;
+#X text 423 24 |;
+#X text 423 29 v;
+#X text 42 92 2 Create 8 vertical sliders (control+shift+v or command+shift+v)
+that send values to each of the harmonics h1 through h8. You'll need
+to modify the properties of your slider (right click) so the output
+range lies between 0 and 1, f 58;
+#X connect 3 0 4 0;
+#X restore 45 65 pd exercise_3;

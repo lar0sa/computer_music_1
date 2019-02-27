@@ -1,0 +1,72 @@
+#N canvas 110 42 698 419 10;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array rabbit 67 float 3;
+#A 0 -0.0980171 0 0.0980171 0.19509 0.290284 0.382683 0.471396 0.55557
+0.634393 0.707106 0.77301 0.831469 0.881921 0.923879 0.95694 0.980785
+0.995185 1 0.995185 0.980786 0.956941 0.92388 0.881922 0.831471 0.773012
+0.707108 0.634395 0.555572 0.471399 0.382686 0.290287 0.195093 0.0980197
+2.65359e-06 -0.0980144 -0.195088 -0.290282 -0.382681 -0.471394 -0.555568
+-0.634391 -0.707104 -0.773008 -0.831468 -0.88192 -0.923878 -0.956939
+-0.980785 -0.995184 -1 -0.995185 -0.980786 -0.956942 -0.923881 -0.881923
+-0.831472 -0.773013 -0.70711 -0.634397 -0.555574 -0.471401 -0.382688
+-0.29029 -0.195095 -0.0980223 -5.30718e-06 0.0980118;
+#X coords 0 1 67 -1 200 140 1 0 0;
+#X restore 394 58 graph;
+#X text 394 208 messages to array:;
+#X floatatom 148 18 5 0 0 0 - - -, f 5;
+#X obj 35 174 phasor~;
+#X obj 35 240 tabread~ rabbit;
+#X obj 153 365 dac~;
+#X obj 67 261 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 67 281 * 0.3;
+#X obj 35 305 *~;
+#X obj 161 172 phasor~;
+#X obj 193 259 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 193 279 * 0.3;
+#X obj 161 303 *~;
+#X obj 161 238 tabread4~ rabbit;
+#X obj 331 260 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 331 280 * 0.3;
+#X obj 299 304 *~;
+#X obj 299 178 osc~;
+#X msg 397 251 \; rabbit sinesum 64 1;
+#X obj 35 218 +~ 0;
+#X obj 161 216 +~ 1;
+#X obj 161 194 *~ 64;
+#X text 151 138 cubic interpolation, f 15;
+#X obj 397 229 loadbang;
+#X text 33 125 no interpolation \, distortion, f 14;
+#X text 201 191 range (from 1 to n-2) \, n=67, f 12;
+#X obj 35 196 *~ 63;
+#X text 395 289 this resizes the array to 67 points (it repeats the
+initial part of the waveform for interpolation purposes), f 37;
+#X text 73 193 repeat every 64 points, f 9;
+#X text 185 18 frequency in Hz;
+#X connect 2 0 3 0;
+#X connect 2 0 9 0;
+#X connect 2 0 17 0;
+#X connect 3 0 26 0;
+#X connect 4 0 8 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 1;
+#X connect 8 0 5 0;
+#X connect 8 0 5 1;
+#X connect 9 0 21 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 1;
+#X connect 12 0 5 0;
+#X connect 12 0 5 1;
+#X connect 13 0 12 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 1;
+#X connect 16 0 5 0;
+#X connect 16 0 5 1;
+#X connect 17 0 16 0;
+#X connect 19 0 4 0;
+#X connect 20 0 13 0;
+#X connect 21 0 20 0;
+#X connect 23 0 18 0;
+#X connect 26 0 19 0;

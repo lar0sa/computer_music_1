@@ -1,0 +1,17 @@
+#N canvas 606 304 521 409 10;
+#X obj 49 82 additive;
+#X obj 78 116 *~;
+#X obj 68 29 unpack;
+#X floatatom 68 54 5 0 0 0 - - -, f 5;
+#X floatatom 104 54 5 0 0 0 - - -, f 5;
+#X obj 67 7 inlet;
+#X obj 77 142 throw~ main-out;
+#X obj 114 79 adsr~;
+#X connect 0 0 1 0;
+#X connect 1 0 6 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 3 0 0 0;
+#X connect 4 0 7 0;
+#X connect 5 0 2 0;
+#X connect 7 0 1 1;
