@@ -1,0 +1,27 @@
+#N canvas 1013 325 907 752 10;
+#X obj 59 123 print;
+#X floatatom 59 48 5 0 0 0 - - -, f 5;
+#X msg 58 93 43 \$1 35;
+#X obj 215 125 print;
+#X obj 266 46 pack;
+#X msg 168 40 -3 -6;
+#X floatatom 246 17 5 0 0 0 - - -, f 5;
+#X floatatom 296 19 5 0 0 0 - - -, f 5;
+#X msg 215 95 43 \$1 35 \$2;
+#X floatatom 238 222 5 0 0 0 - - -, f 5;
+#X floatatom 321 221 5 0 0 0 - - -, f 5;
+#X obj 238 241 s apples-123;
+#X obj 321 239 s apples-234;
+#X obj 68 212 myabstraction 123 555;
+#X text 54 167 1) dollar signs or variables in messages refer to incoming
+lists.;
+#X obj 67 235 myabstraction 234 666;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 4 0 8 0;
+#X connect 5 0 8 0;
+#X connect 6 0 4 0;
+#X connect 7 0 4 1;
+#X connect 8 0 3 0;
+#X connect 9 0 11 0;
+#X connect 10 0 12 0;

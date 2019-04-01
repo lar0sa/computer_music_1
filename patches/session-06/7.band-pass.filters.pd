@@ -1,4 +1,4 @@
-#N canvas 0 53 1024 715 10;
+#N canvas 0 89 1024 715 10;
 #X declare -path ./lib;
 #X obj 87 37 noise~;
 #X obj 128 113 s~ signal;
@@ -28,11 +28,10 @@
 #X floatatom 382 75 5 0 0 0 - - -, f 5;
 #X obj 382 94 s k;
 #X obj 199 423 *~;
-#X obj 239 422 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 239 422 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 197 398 r~ processed;
 #X obj 224 462 dac~;
-#X obj 130 243 bp~, f 8;
 #X floatatom 152 178 5 0 0 0 - - -, f 5;
 #X floatatom 175 209 5 0 0 0 - - -, f 5;
 #X obj 130 276 *~ 1;
@@ -43,14 +42,15 @@
 #X obj 282 399 r~ signal;
 #X text 200 277 amplitude;
 #X text 211 210 q \, bandwidth;
-#X text 190 178 central frequency;
 #X floatatom 144 15 5 0 0 0 - - -, f 5;
 #X obj 336 248 osc~ 440;
 #X obj 336 265 *~ 0.02;
 #X obj 326 301 dac~;
 #X obj 145 38 phasor~ 300;
+#X text 190 178 center frequency;
+#X obj 130 243 vcf~ 20, f 8;
 #X connect 0 0 3 0;
-#X connect 2 0 28 0;
+#X connect 2 0 43 0;
 #X connect 3 0 1 0;
 #X connect 4 0 3 1;
 #X connect 5 0 1 0;
@@ -71,15 +71,15 @@
 #X connect 24 0 27 1;
 #X connect 25 0 24 1;
 #X connect 26 0 24 0;
-#X connect 28 0 31 0;
-#X connect 29 0 28 1;
-#X connect 30 0 28 2;
-#X connect 31 0 17 0;
-#X connect 32 0 31 1;
-#X connect 33 0 27 0;
-#X connect 33 0 27 1;
-#X connect 34 0 33 1;
-#X connect 35 0 33 0;
-#X connect 39 0 43 0;
-#X connect 40 0 41 0;
-#X connect 43 0 5 0;
+#X connect 28 0 43 1;
+#X connect 29 0 43 2;
+#X connect 30 0 17 0;
+#X connect 31 0 30 1;
+#X connect 32 0 27 0;
+#X connect 32 0 27 1;
+#X connect 33 0 32 1;
+#X connect 34 0 32 0;
+#X connect 37 0 41 0;
+#X connect 38 0 39 0;
+#X connect 41 0 5 0;
+#X connect 43 0 30 0;

@@ -1,0 +1,16 @@
+#N canvas 574 347 450 300 10;
+#X floatatom 19 87 0 0 0 0 - - -;
+#X obj 19 143 exp;
+#X floatatom 19 169 6 0 0 0 - - -, f 6;
+#X obj 19 196 - 1;
+#X obj 19 117 * 0.05776;
+#X obj 19 222 * -1;
+#X text 53 86 <-- transposition;
+#X text 96 99 (halftones);
+#X text 82 163 speed;
+#X text 81 177 change;
+#X connect 0 0 4 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 4 0 1 0;

@@ -1,0 +1,6 @@
+#N canvas 234 249 450 300 10;
+#X obj 69 42 inlet;
+#X obj 62 239 outlet~;
+#X obj 164 41 r \$1-messages;
+#X obj 211 80 r global-messages;
+#X obj 178 150 r~ mod-signal;

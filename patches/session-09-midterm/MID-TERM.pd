@@ -1,0 +1,387 @@
+#N canvas 578 110 768 583 10;
+#N canvas 67 89 936 986 2_HACK_Your_Wavetable_Oscillator 0;
+#N canvas 1086 135 740 834 vibrato 0;
+#X floatatom 52 85 5 0 0 0 - - -, f 5;
+#X msg 52 59 60;
+#X obj 132 160 +~;
+#X obj 132 206 osc~;
+#X obj 149 336 *~;
+#X obj 137 369 dac~;
+#X obj 151 86 osc~;
+#X obj 190 132 *~;
+#X obj 132 182 mtof~;
+#X obj 169 247 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 169 268 pack f 50;
+#X obj 169 290 line~;
+#X obj 222 73 pack f 50;
+#X obj 222 95 line~;
+#X floatatom 222 49 5 0 0 0 - - -, f 5;
+#X floatatom 151 48 5 0 0 0 - - -, f 5;
+#X text 144 16 vibrato frequency, f 9;
+#X text 217 17 vibrato width, f 7;
+#X text 187 246 on/off;
+#X text 167 208 main oscillator;
+#X text 44 23 main frequency, f 9;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 8 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 0 5 1;
+#X connect 6 0 7 0;
+#X connect 7 0 2 1;
+#X connect 8 0 3 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 4 1;
+#X connect 12 0 13 0;
+#X connect 13 0 7 1;
+#X connect 14 0 12 0;
+#X connect 15 0 6 0;
+#X restore 284 210 pd vibrato;
+#N canvas 84 308 941 512 GUI 0;
+#X obj 44 47 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
+-1 4;
+#X floatatom 44 67 5 0 0 0 - - -, f 5;
+#X obj 44 86 s value1;
+#X obj 141 165 r value1;
+#X floatatom 141 187 5 0 0 0 - - -, f 5;
+#X obj 207 47 hradio 15 1 0 8 value1 empty empty 0 -8 0 10 -262144
+-1 -1 5;
+#X text 41 16 Test to see how it works:, f 20;
+#X text 205 28 This works too:;
+#X text 205 67 Check the object properties to find out how it works...
+, f 20;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X restore 214 138 pd GUI;
+#X obj 198 97 hradio 15 1 0 7 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X text 196 112 -3;
+#X text 211 112 -2;
+#X text 227 112 -1;
+#X text 246 112 0;
+#X text 260 112 1;
+#X text 274 112 2;
+#X text 288 112 3;
+#X text 142 112 OCTAVES:;
+#X obj 211 548 tab-waveforms;
+#X text 60 138 more on gui objects here:;
+#X text 44 568 You should also use an Hradio to choose waveforms \,
+say 0 for square \, 1 for triangle \, etc...;
+#X text 46 599 *** Important \, remember that you can only have one
+array with the same name in a patch \, so think about where you will
+place these arrays.;
+#X text 42 275 Have your modulation wheel control the amplitude or
+depth control of a modulation signal coming from a different part in
+the patch using something like:;
+#X obj 252 306 r~ mod-signal;
+#X text 27 34 Modify your wavetable oscillator (the one with phasor~
+and tabread4~) with the following features:;
+#X text 45 67 1 you can change the octave of your incoming pitch 3
+octave up or down or not at all. Use an Hradio GUI like the one below
+to control it:;
+#X text 43 181 2 you can have a modulation parameter (vibrato) \, that
+is controlled by the modulation wheel in your keyboard (if you have
+one). You can review vibrato here:;
+#X text 43 329 3 you can have a glissando control \, so that you can
+potentially glide from one note to the next or not.;
+#X text 42 362 4 you can have a tune option that allows you to modify
+the tuning of your whole oscillator +/- 3 whole steps;
+#X text 41 479 6 you have a final level control that allows you to
+give it an amplitude control.;
+#X text 41 517 7 You can choose an assortment of waverforms such as
+the usual square \, triangle \, sawtooth \, and pulse. Feel free to
+borrw my abstraction below:;
+#X obj 172 254 r midi-modulation;
+#X text 42 234 You should receive modulation depth from midi as:;
+#X text 42 394 5 you can have a bend control from your pitch-bend wheel
+of your keyboard (if it has one...). You would receive it as a message
+like this one:;
+#X obj 181 425 r bend;
+#X text 42 445 Use a variable called bend-size to control the size
+of the bend.;
+#X text 59 159 you can also check how my gui looks like. See step 9_GUI
+;
+#X restore 40 72 pd 2_HACK_Your_Wavetable_Oscillator;
+#N canvas 562 115 1010 728 3_Make_Your_Oscillator_an_abstraction 0
+;
+#X text 12 94 Global to all oscillators: modualtion \, modulation depth
+\, bend and bend depth \, tune \, glissando time.;
+#X text 12 127 Specific to all oscillators: waveform \, octave \, and
+amplitude level, f 51;
+#X text 12 166 All control values should have a gui object to control
+them \, Hradio for selectors and sliders for numbers.;
+#X text 11 11 After you edit your oscillator as shown earlier make
+it an abstraction. Some of the control variables we've setup will be
+specific to each oscillator and some others will be global to all oscillators.
+For those that are specific we will use \$1-messages \, that is \,
+messages with variables.;
+#N canvas 670 99 980 708 abstraction-arguments/variables 0;
+#X obj 136 200 myabstraction 13;
+#X floatatom 32 223 5 0 0 0 - - -, f 5;
+#X floatatom 136 222 5 0 0 0 - - -, f 5;
+#X floatatom 34 44 5 0 0 0 - - -, f 5;
+#X floatatom 135 43 5 0 0 0 - - -, f 5;
+#X obj 135 64 s 13-testmessage;
+#X obj 254 65 pack f f;
+#X msg 322 40 13;
+#X msg 254 87 \; \$2-testmessage \$1;
+#X floatatom 254 31 5 0 0 0 - - -, f 5;
+#X obj 34 65 s 2-testmessage;
+#X obj 32 201 myabstraction 2;
+#X msg 309 20 2;
+#X text 39 180 check to see what's inside:;
+#X text 29 9 send messages to specific abstractions:;
+#X text 30 149 receive messages in specific abstractions:;
+#X connect 0 0 2 0;
+#X connect 3 0 10 0;
+#X connect 4 0 5 0;
+#X connect 6 0 8 0;
+#X connect 7 0 6 1;
+#X connect 9 0 6 0;
+#X connect 11 0 1 0;
+#X connect 12 0 6 1;
+#X restore 14 258 pd abstraction-arguments/variables;
+#N canvas 67 300 972 450 basic 0;
+#X floatatom 18 83 5 0 0 0 - - -, f 5;
+#X obj 18 102 pack f 40;
+#X obj 18 124 print;
+#X floatatom 85 84 5 0 0 0 - - -, f 5;
+#X obj 85 125 print;
+#X msg 85 103 \$1 40;
+#X floatatom 177 75 5 0 0 0 - - -, f 5;
+#X obj 177 94 pack f 40;
+#X msg 177 116 \$1-test \$2;
+#X obj 177 138 print;
+#X text 175 52 moreover...:;
+#X text 14 6 This is how you use variables \, or dollar sign arguments
+\, in messages:;
+#X text 257 83 the \$1 argument will eb replaced by the first element
+in the incoming list \, \$2 by the second \, and so on., f 24;
+#X text 15 57 these are the same:;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 5 0;
+#X connect 5 0 4 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X restore 14 233 pd basic variables;
+#X text 12 211 A review on variables:;
+#X restore 40 93 pd 3_Make_Your_Oscillator_an_abstraction;
+#N canvas 67 89 852 557 1_midi 1;
+#X text 25 6 1) This is a monophonic synthesizer \, so you will need
+the usual notein object with poly 1 1;
+#X text 25 41 Modify your patch so when velocity is not 0 \, you always
+get 1 \, and when velocity is 0 \, you get 0;
+#X obj 181 92 s midi-modulation;
+#X text 25 75 Use your modulation wheel \, if you have it \, to send
+out a modulation message like:;
+#X text 26 159 Use your pitch-bend wheel \, if you have it \, to send
+out a bend message like:;
+#X obj 182 176 s bend;
+#X text 50 119 it should come in through ctlin. adjust range to 0 to
+1;
+#X text 51 203 itshould come in through the bendin object. adjust range
+to -1 to 1, f 45;
+#X restore 40 51 pd 1_midi;
+#N canvas 67 89 416 117 5_HACK_Your_ADSR 0;
+#X text 25 6 Hack your ADSR abstraction to make an ASR envelope abstracion.
+It should receive its parameters from an inlet \, so each ASR can have
+its own parameters.;
+#X text 26 51 Remember in a minimoog you don't get velocity \, just
+0 or 1, f 51;
+#X restore 40 135 pd 5_HACK_Your_ADSR;
+#N canvas 67 89 450 300 7_Amplitude 0;
+#X text 26 22 use your asr~ to control the global amplitude profile
+of the filtered sound.;
+#X restore 40 177 pd 7_Amplitude;
+#N canvas 67 89 423 195 6_Filter 0;
+#X text 28 12 use a vcf~ filter to do the subtractive synthesis technique.
+;
+#X text 28 38 control the center frequency with an asr~. The output
+of the asr needs to be adjusted in range. remember the output of asr~
+is 0 to 1 \, so we need to adjust it to go from min to min+range by
+multiplyig times range and adding min;
+#X text 26 103 the filter then needs three control parameters:;
+#X text 53 125 minimum \, range \, and q;
+#X text 28 148 the ASR to control the center frequency needs A \, S
+\, and R;
+#X restore 40 156 pd 6_Filter;
+#N canvas 67 89 451 201 8_Modulation_Signal 0;
+#X obj 194 143 s~ mod-signal;
+#X text 42 21 copy your oscilator to create a modulating signal. In
+the example in class and here we used a sinve wave (osc~);
+#N canvas 697 134 335 426 vibrato 0;
+#X floatatom 52 85 5 0 0 0 - - -, f 5;
+#X msg 52 59 60;
+#X obj 132 160 +~;
+#X obj 132 206 osc~;
+#X obj 149 336 *~;
+#X obj 137 369 dac~;
+#X obj 151 86 osc~;
+#X obj 190 132 *~;
+#X obj 132 182 mtof~;
+#X obj 169 247 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 169 268 pack f 50;
+#X obj 169 290 line~;
+#X obj 222 73 pack f 50;
+#X obj 222 95 line~;
+#X floatatom 222 49 5 0 0 0 - - -, f 5;
+#X floatatom 151 48 5 0 0 0 - - -, f 5;
+#X text 144 16 vibrato frequency, f 9;
+#X text 217 17 vibrato width, f 7;
+#X text 187 246 on/off;
+#X text 167 208 main oscillator;
+#X text 44 23 main frequency, f 9;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 8 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 0 5 1;
+#X connect 6 0 7 0;
+#X connect 7 0 2 1;
+#X connect 8 0 3 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 4 1;
+#X connect 12 0 13 0;
+#X connect 13 0 7 1;
+#X connect 14 0 12 0;
+#X connect 15 0 6 0;
+#X restore 156 56 pd vibrato;
+#X text 43 56 review this again:;
+#X text 42 83 the modulating oscillator also needs to use these parameters:
+;
+#X text 59 115 a waveform \, a frequency \, and a modulation size or
+depth.;
+#X text 40 143 then you send it through:;
+#X restore 40 198 pd 8_Modulation_Signal;
+#N canvas 67 89 865 987 4_Arrange_Oscillators 0;
+#X text 29 16 The single voice of your oscillator is made of three
+instances of the tabread4~ abstraction we have been modifying thus
+far. I am calling it myosc~ here and "voice" in my version \, which
+is a misnomer.;
+#X obj 65 144 cnv 15 130 180 empty empty empty 20 12 0 14 -203904 -66577
+0;
+#N canvas 0 22 450 300 midi 0;
+#X obj 155 165 outlet;
+#X obj 156 35 notein;
+#X restore 128 155 pd midi;
+#X obj 77 228 myosc~ 1;
+#X obj 128 180 unpack f f, f 17;
+#X obj 88 340 +~;
+#X obj 88 362 /~;
+#X obj 239 307 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 128 375 asr~;
+#X obj 221 438 asr~;
+#N canvas 0 22 450 300 filter 0;
+#X obj 111 6 inlet~;
+#X obj 123 196 vcf~, f 10;
+#X obj 180 49 inlet~;
+#X obj 259 162 inlet;
+#X obj 180 75 *~;
+#X obj 180 102 +~;
+#X obj 123 251 outlet~;
+#X text 304 164 q;
+#X text 155 9 input from oscillators;
+#X text 206 75 adjust range here, f 6;
+#X text 225 48 from asr~;
+#X connect 0 0 1 0;
+#X connect 1 0 6 0;
+#X connect 2 0 4 0;
+#X connect 3 0 1 2;
+#X connect 4 0 5 0;
+#X connect 5 0 1 1;
+#X restore 96 407 pd filter;
+#X obj 146 493 *~;
+#X text 86 180 pitch;
+#X text 242 177 velocity (1 or 0);
+#X text 0 349 divide appropriately:, f 14;
+#X obj 163 374 r filter-asr;
+#X obj 254 438 r amplitude-asr;
+#X obj 141 541 dac~;
+#X text 30 85 The general diagram for your synth looks like this. You
+have already worked on the purple section and now we need to move to
+the subtractive section of the synth.;
+#N canvas 0 22 450 300 modulation 0;
+#X obj 142 209 outlet~;
+#X restore 270 257 pd modulation signal;
+#X obj 98 252 myosc~ 2;
+#X obj 117 276 myosc~ 3;
+#X text 246 502 ** you can make the purple rectangle using "put canvas"
+, f 20;
+#X connect 2 0 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 0;
+#X connect 4 0 20 0;
+#X connect 4 0 21 0;
+#X connect 4 1 7 0;
+#X connect 5 0 6 0;
+#X connect 6 0 10 0;
+#X connect 7 0 8 0;
+#X connect 7 0 9 0;
+#X connect 8 0 10 1;
+#X connect 9 0 11 1;
+#X connect 10 0 11 0;
+#X connect 11 0 17 0;
+#X connect 11 0 17 1;
+#X connect 15 0 8 1;
+#X connect 16 0 9 1;
+#X connect 20 0 5 0;
+#X connect 21 0 5 0;
+#X restore 40 114 pd 4_Arrange_Oscillators;
+#N canvas 67 89 403 175 9_GUI 0;
+#N canvas 443 110 1200 838 GUI-presets 0;
+#X obj 46 128 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
+-1 7;
+#X floatatom 46 148 5 0 0 0 - - -, f 5;
+#X obj 46 167 s value2;
+#X obj 46 102 r i-value2;
+#X obj 193 127 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144
+-1 -1 4;
+#X floatatom 193 147 5 0 0 0 - - -, f 5;
+#X obj 193 101 r i-value3;
+#X obj 193 166 s value3;
+#X text 46 13 The receive message has to be different to avoid a circular
+loop. Circular loops never end \, so you want to avoid them, f 46
+;
+#X obj 48 215 hsl 128 15 0 127 0 0 value4 i-value4 Value_4 -2 -8 0
+10 -262144 -1 -1 3400 1;
+#X obj 49 251 hsl 128 15 0 127 0 0 value5 i-value5 Value_5 -2 -8 0
+10 -262144 -1 -1 9000 1;
+#X msg 381 50 \; i-value2 3 \; i-value3 6 \; i-value4 120 \; i-value5
+65;
+#X msg 382 139 \; i-value2 7 \; i-value3 4 \; i-value4 34 \; i-value5
+90;
+#X obj 48 303 r value2;
+#X floatatom 48 325 5 0 0 0 - - -, f 5;
+#X floatatom 106 326 5 0 0 0 - - -, f 5;
+#X floatatom 166 325 5 0 0 0 - - -, f 5;
+#X floatatom 224 326 5 0 0 0 - - -, f 5;
+#X obj 166 303 r value4;
+#X obj 224 304 r value5;
+#X obj 106 304 r value3;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 0 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 0;
+#X connect 6 0 4 0;
+#X connect 13 0 14 0;
+#X connect 18 0 16 0;
+#X connect 19 0 17 0;
+#X connect 20 0 15 0;
+#X restore 26 86 pd GUI-presets;
+#X text 6 66 You can read more about presets here:;
+#X text 10 16 You can see how my GUI looks like in the attached file
+called Jaime-minimoog-GUI.png;
+#X restore 40 219 pd 9_GUI;
+#X text 27 17 MAKE Your Own Minimoog following these instructions::
+;

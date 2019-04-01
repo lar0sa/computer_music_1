@@ -1,0 +1,38 @@
+#N canvas 92 114 1052 697 10;
+#X obj 24 44 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 24 61 f \$1;
+#X floatatom 24 81 5 0 0 0 - - -, f 5;
+#X obj 24 22 loadbang;
+#X floatatom 197 41 5 0 0 0 - - -, f 5;
+#X obj 197 22 r apples-\$1;
+#X obj 96 44 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 96 81 5 0 0 0 - - -, f 5;
+#X obj 96 22 loadbang;
+#X obj 96 61 f \$2;
+#X floatatom 175 98 5 0 0 0 - - -, f 5;
+#X obj 175 79 r apples-\$1-\$2;
+#X text 115 122 2) dollar signs or variables in objects refer to creation
+arguments in abstractions;
+#X obj 59 116 +;
+#X floatatom 59 135 5 0 0 0 - - -, f 5;
+#X obj 60 157 s \$0-banana;
+#X floatatom 54 239 5 0 0 0 - - -, f 5;
+#X obj 55 209 r \$0-banana;
+#X text 151 205 3) dollar zero (\$0) variables are local to abstractions.
+This means that the other abstractions and the main patch won't get
+the message and can have variables with the same name.;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 13 0;
+#X connect 3 0 0 0;
+#X connect 5 0 4 0;
+#X connect 6 0 9 0;
+#X connect 7 0 13 1;
+#X connect 8 0 6 0;
+#X connect 9 0 7 0;
+#X connect 11 0 10 0;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 17 0 16 0;
