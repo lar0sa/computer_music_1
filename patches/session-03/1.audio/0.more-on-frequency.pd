@@ -1,7 +1,7 @@
-#N canvas 4247 295 605 333 10;
-#X obj 135 171 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 38 236 tabwrite~ scope;
+#N canvas 533 15 1147 691 10;
+#X obj 135 171 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 82 255 tabwrite~ scope;
 #N canvas 0 50 450 278 (subpatch) 0;
 #X array scope 441 float 3;
 #A 0 -0.336259 -0.394598 -0.451385 -0.506398 -0.559423 -0.61025 -0.658681
@@ -72,8 +72,8 @@
 #X text 325 22 1;
 #X text 324 89 0-;
 #X text 153 168 hit bang to record, f 10;
-#X obj 135 90 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
+#X obj 135 90 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
 #X obj 135 148 metro 100;
 #X obj 38 149 osc~ 440;
 #N canvas 862 50 401 233 dsp-trick 0;
@@ -89,11 +89,11 @@ a bang when you load the patch.;
 #X restore 451 261 pd dsp-trick;
 #X msg 18 11 220 10000;
 #X obj 38 104 line;
-#X floatatom 38 130 5 0 0 0 - - -, f 5;
+#X floatatom 38 130 5 0 0 0 - - - 0;
 #X text 278 224 sample rate = 44 \, 100 (samples per sec.) so we are
 seeing 1/100th of a second, f 40;
 #X text 154 85 click here to graph every 100 msec, f 13;
-#X floatatom 207 150 5 0 0 0 - - -, f 5;
+#X floatatom 207 150 5 0 0 0 - - - 0;
 #X text 95 8 try these two messages \, note changes in period size
 on graph as frequency changes, f 28;
 #X text 336 185 |<--one hundredth of a second-->|;
