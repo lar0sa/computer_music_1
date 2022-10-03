@@ -1,25 +1,39 @@
-#N canvas 800 196 398 466 10;
-#X obj 43 67 osc~ 440;
-#X obj 43 156 *~;
-#X obj 43 186 dac~;
-#X obj 208 69 osc~ 440;
-#X obj 208 158 *~;
-#X obj 208 188 dac~;
-#X floatatom 289 110 5 0 0 0 - - -, f 5;
-#X floatatom 296 68 5 0 0 0 - - -, f 5;
-#X obj 289 129 pack f 30;
-#X obj 279 153 line~;
-#X floatatom 111 111 5 0 0 0 - - -, f 5;
-#X obj 111 130 pack f 30;
-#X obj 100 154 line~;
-#X obj 296 87 dbtorms;
-#X obj 48 265 osc~ 440;
-#X obj 48 287 env~;
-#X floatatom 48 309 5 0 0 0 - - -, f 5;
-#X obj 48 330 dbtorms;
-#X floatatom 48 352 5 0 0 0 - - -, f 5;
-#X text 233 32 logarithmic;
-#X text 73 38 linear;
+#N canvas 800 196 460 466 10;
+#X obj 64 154 osc~ 440;
+#X obj 64 243 *~;
+#X obj 64 273 dac~;
+#X obj 229 156 osc~ 440;
+#X obj 229 245 *~;
+#X obj 229 275 dac~;
+#X floatatom 310 197 5 0 0 0 - - - 0;
+#X floatatom 317 155 5 0 0 0 - - - 0;
+#X obj 310 216 pack f 30;
+#X obj 300 240 line~;
+#X floatatom 132 198 5 0 0 0 - - - 0;
+#X obj 132 217 pack f 30;
+#X obj 121 241 line~;
+#X obj 317 174 dbtorms;
+#X obj 40 339 osc~ 440;
+#X obj 40 361 env~;
+#X floatatom 40 383 5 0 0 0 - - - 0;
+#X obj 40 404 dbtorms;
+#X floatatom 40 426 5 0 0 0 - - - 0;
+#X text 352 154 (0-100db);
+#X text 348 198 (0-1);
+#X text 121 178 peak amplitude;
+#X text 28 18 PEAK Amplitude and linear and logarithmic scales;
+#X text 27 310 RMS Amplitude and envelope;
+#X text 55 125 linear scale;
+#X text 226 121 logarithmic scale;
+#X text 43 50 peak amplitude is the maximum or peak amplitude value
+in a waveform. Since the output of a sine wave or [osc~] object is
+1 \, it's peak amplitude is 1 Thus \, multiplying the output of [osc~]
+by any number is controlling its peak amplitude.;
+#X text 109 342 [env~] gives you the RMS amplitude of a signal. RMS
+or Root Mean Square is a way to get the average amplitude over a period
+of time. As you know \, the peak amplitude of a sine wave is 1 \, but
+we it's RMS is ~97dB. Notice that env~ is one of the few signal objects
+that output control values., f 47;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 1 0 2 1;
